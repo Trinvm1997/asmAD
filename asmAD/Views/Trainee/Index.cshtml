@@ -1,0 +1,86 @@
+﻿@model PagedList.IPagedList<asmAD.Models.Trainee>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Trainees";
+}
+
+<h2>Trainees</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "Student", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("TE_Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("TE_Age", "Index", new { sortOrder = ViewBag.AgeSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("TE_DOB", "Index", new { sortOrder = ViewBag.DobSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("TE_Education", "Index", new { sortOrder = ViewBag.EducationSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("TE_MainLang", "Index", new { sortOrder = ViewBag.LangSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("TE_TOEIC", "Index", new { sortOrder = ViewBag.ScoreSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("EnrollmentDate", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TE_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TE_Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TE_DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TE_Education)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TE_MainLang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TE_TOEIC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TraineeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TraineeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TraineeID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

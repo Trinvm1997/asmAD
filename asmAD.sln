@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asmAD", "asmAD\asmAD.csproj", "{FFE873DE-222A-4EFD-8631-A16340046404}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFE873DE-222A-4EFD-8631-A16340046404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE873DE-222A-4EFD-8631-A16340046404}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE873DE-222A-4EFD-8631-A16340046404}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE873DE-222A-4EFD-8631-A16340046404}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF4BBE41-6C5B-468F-B06A-D22D276C32DB}
+	EndGlobalSection
+EndGlobal

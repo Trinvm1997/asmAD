@@ -1,0 +1,97 @@
+﻿@model asmAD.Models.Trainee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Trainee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TE_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TE_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TE_Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TE_Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TE_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TE_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TE_Education)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TE_Education)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TE_MainLang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TE_MainLang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TE_TOEIC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TE_TOEIC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Enrollments)
+        </dt>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Course Name</th>
+                    <th>Course decription</th>
+                </tr>
+                @foreach (var item in Model.Enrollments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Course.CourseName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Course.CourseDescription)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TraineeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
